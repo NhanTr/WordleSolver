@@ -2,6 +2,8 @@ import flask
 from flask import render_template, jsonify
 from Astar import astar_solver
 import os
+from Entropy import entropySolver
+import random
 app = flask.Flask(__name__, template_folder='templates')
 
 words = []
@@ -42,13 +44,17 @@ def ai_send_guess():
         next_guess = "flame"  # Example guess for UCS
     elif algorithm == 'astar':
         candidates_k = candidates[:5]
-        next_guess = astar_solver(candidates_k, depth)  # Example guess for A*
+        next_guess = astar_solver(candidates_k, depth)
+    elif algorithm == 'entropy':
+        newLength = min(1000, len(candidates))
+        candidateArray = random.sample(candidates, newLength)
+        next_guess = entropySolver(words, candidateArray)  
     else:
         next_guess = "apple"  # Default guess
     
 
     print(f"AI selected guess: {next_guess} using {algorithm} algorithm")
-    return jsonify({'nextGuess': next_guess})
+    return jsonify({'nextGuess': next_guess})   
 
 if __name__ == '__main__':
     app.run(debug=True)

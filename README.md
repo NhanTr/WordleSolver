@@ -65,6 +65,12 @@ http://127.0.0.1:5000
 - `Source/static/app.js`: logic tương tác phía client.
 - `Source/static/words.txt`: danh sách từ dùng trong game.
 
+## Công
+
+| NhanTr | Nguyen Thien Nhan | KhoiTran1009 |
+| --- | --- | --- |
+| Khởi tạo project WordleSolver, viết README, chỉnh cấu trúc dự án, Hoàn thiện thuật toán A star | Hoàn thiện thuật toán Entropy và hợp nhất các thay đổi chính | Thêm Bayesian solver |
+
 ## Ghi chú
 
 - Danh sách từ hiện tại là tiếng Anh và tập trung vào các từ 5 chữ cái.

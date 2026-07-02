@@ -37,14 +37,8 @@ def ai_send_guess():
     depth = len(previous_guesses)
     
     # Placeholder for AI logic based on the selected algorithm
-    if algorithm == 'dfs':
-        next_guess = "crane"  # Example guess for DFS
-    elif algorithm == 'bfs':
-        next_guess = "slate"  # Example guess for BFS
-    elif algorithm == 'ucs':
-        next_guess = "flame"  # Example guess for UCS
-    elif algorithm == 'astar':
-        candidates_k = candidates[:5]
+    if algorithm == 'astar':
+        candidates_k = random.sample(candidates, min(200, len(candidates)))
         next_guess = astar_solver(candidates_k, depth)
     elif algorithm == 'entropy':
         newLength = min(1000, len(candidates))
